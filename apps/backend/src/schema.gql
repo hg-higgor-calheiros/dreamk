@@ -1,0 +1,51 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Drink {
+  """ID"""
+  id: Int!
+
+  """Drink name"""
+  name: String!
+
+  """Drink ingredients"""
+  ingredients: [String!]!
+
+  """Drink instructions"""
+  instructions: String!
+}
+
+type Query {
+  drinks: [Drink!]!
+  drink(id: Int!): Drink!
+}
+
+type Mutation {
+  createDrink(createDrinkInput: CreateDrinkInput!): Drink!
+  updateDrink(updateDrinkInput: UpdateDrinkInput!): Drink!
+  removeDrink(id: Int!): Drink!
+}
+
+input CreateDrinkInput {
+  """Drink name"""
+  name: String!
+
+  """Drink ingredients"""
+  ingredients: [String!]!
+
+  """Drink instructions"""
+  instructions: String!
+}
+
+input UpdateDrinkInput {
+  """Drink name"""
+  name: String
+
+  """Drink ingredients"""
+  ingredients: [String!]
+
+  """Drink instructions"""
+  instructions: String
+  id: Int!
+}
