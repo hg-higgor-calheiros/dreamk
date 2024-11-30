@@ -28,7 +28,7 @@ export class DrinksResolver {
     return this.drinksService.update(updateDrinkInput.id, updateDrinkInput);
   }
 
-  @Mutation(() => Drink)
+  @Mutation(() => Boolean)
   removeDrink(@Args('id', { type: () => Int }) id: number) {
     return this.drinksService.remove(id);
   }

@@ -33,7 +33,8 @@ export class DrinksService {
     return this.findOne(id);
   }
 
-  remove(id: number): void {
+  remove(id: number): boolean {
     drinks = drinks.filter((drink) => drink.id !== id);
+    return true;
   }
 }
