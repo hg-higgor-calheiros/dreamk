@@ -1,45 +1,32 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import { colors } from "@/style/colors";
+import { Tabs } from "expo-router";
+import { AntDesign } from "@expo/vector-icons";
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function TabsLayout() {
+  function options(label: string, icone: string): any {
+    return {
+      headerShown: false,
+      tabBarLabel: label,
+      tabBarActiveTintColor: colors.blue[500],
+      tabBarLabelStyle: { fontSize: 12, fontWeight: "bold" },
+      tabBarInactiveTintColor: colors.zinc[400],
+      tabBarStyle: {
+        backgroundColor: colors.zinc[950],
+        borderTopWidth: 0,
+      },
+      tabBarIcon: ({ focused }: any) => (
+        <AntDesign
+          name={icone as any}
+          size={24}
+          color={focused ? colors.blue[500] : colors.zinc[400]}
+        />
+      ),
+    };
+  }
 
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
+    <Tabs>
+      <Tabs.Screen name="index" options={options("Início", "home")} />
     </Tabs>
   );
 }

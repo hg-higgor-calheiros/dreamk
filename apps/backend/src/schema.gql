@@ -24,7 +24,7 @@ type Query {
 type Mutation {
   createDrink(createDrinkInput: CreateDrinkInput!): Drink!
   updateDrink(updateDrinkInput: UpdateDrinkInput!): Drink!
-  removeDrink(id: Int!): Drink!
+  removeDrink(id: Int!): Boolean!
 }
 
 input CreateDrinkInput {
