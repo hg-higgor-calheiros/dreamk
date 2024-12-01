@@ -24,9 +24,9 @@ A full-stack project for managing drink data, built with a **NestJS** backend, a
 ## Project Structure
 
 ```plaintext
-drink-manager/ 
+dreamk/ 
 ├── backend/ # NestJS GraphQL API 
-├── mobile-app/ # React Native application 
+├── mobile/ # React Native application 
 └── core/ # Shared entities and interfaces
 ```
 
@@ -35,48 +35,34 @@ drink-manager/
 ## Getting Started
 
 ### Prerequisites
-- **Node.js** (v14+)
+- **Node.js** (v18+)
 - **npm** or **yarn**
-- **React Native CLI** (for mobile app)
 
 ### Installation
 
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/username/drink-manager.git
-    cd drink-manager
+    git clone https://github.com/hg-higgor-calheiros/dreamk.git
+    cd dreamk
     ```
 
 2. **Install dependencies:**
 
     ```bash
-    # Backend
-    cd backend
-    npm install
-
-    # Core
-    cd ../core
-    npm install
-
-    # Mobile App
-    cd ../mobile-app
-    npm install
+    $ yarn
     ```
 
 3. **Run the backend server:**
 
     ```bash
-    cd ../backend
-    npm run start:dev
+    $ yarn apps:backend
     ```
 
 4. **Run the mobile app:**
 
     ```bash
-    cd ../mobile-app
-    npx react-native run-android   # For Android
-    npx react-native run-ios       # For iOS
+     $ yarn apps:mobile
     ```
 
 ---
@@ -84,7 +70,7 @@ drink-manager/
 ## Backend (NestJS)
 
 ### Description
-A NestJS application that provides a GraphQL API for managing drink data. It includes endpoints for creating, reading, updating, and deleting drinks.
+A NestJS application that provides a GraphQL API for managing cocktails data. It includes endpoints for creating, reading, updating, and deleting drinks.
 
 ### Features
 - **GraphQL API**: Query and mutate drink data.
@@ -95,11 +81,11 @@ A NestJS application that provides a GraphQL API for managing drink data. It inc
 - **Start development server:**
 
     ```bash
-    npm run start:dev
+    yarn apps:backend
     ```
 
 - **Access GraphQL Playground:**  
-  Visit `http://localhost:3000/graphql`.
+  Visit `http://localhost:4000/graphql`.
 
 ---
 
@@ -110,20 +96,13 @@ A cross-platform mobile app built with React Native. It fetches and displays dri
 
 ### Features
 - **Drink List**: Displays a list of drinks.
-- **Detail View**: View more details about each drink.
 - **Offline Support** (optional): Cache drink data locally.
 
 ### Commands
 - **Run on Android:**
 
     ```bash
-    npx react-native run-android
-    ```
-
-- **Run on iOS:**
-
-    ```bash
-    npx react-native run-ios
+    $ yarn apps:mobile
     ```
 
 ---
@@ -150,7 +129,7 @@ A shared library that includes core entities and interfaces used in both the bac
 - **Build core package:**
 
     ```bash
-    npm run build
+    $ yarn packages:core
     ```
 
 ---
